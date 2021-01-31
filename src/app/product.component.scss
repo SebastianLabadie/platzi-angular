@@ -1,0 +1,68 @@
+@import './variables';
+
+:host {
+  border: 1px solid #333;
+  border-radius: 10px;
+  display: block;
+  padding: 10px;
+}
+
+.product-img {
+  height: 240px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  padding: 5px 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+
+  &-success {
+    color: #fff;
+    background: $color-success;
+    border-bottom: 5px solid #a4cc63;
+  }
+  &-success:hover {
+    transition: 0.2s;
+    box-shadow: 0 2px 13px 0 rgba(88,144,45,.49);
+  }
+
+  &-danger {
+    color: #fff;
+    background: $color-success;
+    border-bottom: 5px solid #c23f31;
+  }
+  
+  &-danger:hover {
+    box-shadow: 0 2px 13px 0 rgba(163, 43, 30, .49);
+    transition: 0.2s;
+  }
+
+  &-block {
+    display: block;
+    width: 100%;
+  }
+
+}
+
+.ctn {
+  text-align: center;
+}
+
+.type {
+  padding: 5px 15px;
+  font-weight: 700;
+}
+
+.mr-3 {
+  margin-right: 3em;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
