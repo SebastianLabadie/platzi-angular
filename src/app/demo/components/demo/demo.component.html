@@ -28,7 +28,12 @@
 <ul>
   <li *ngIf="items.length === 0">la lista esta vacia</li>
   <li *ngFor="let name of items; index as i">
-    {{ name }} {{ i }}
+    {{ i }} - {{ name }} 
     <button (click)="deleteItem(i)">delete</button>
   </li>
 </ul>
+
+<h2>{{ 'DEMO.PARAGRAPH' | translate }}</h2>
+<select #langSelect (change)="translate.use(langSelect.value)">
+  <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
+</select>
