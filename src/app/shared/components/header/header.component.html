@@ -8,17 +8,17 @@
             [routerLink]="['/home']"
             routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: true }"
-            >Home</a
+            >{{'HEADER.HOME' | translate }}</a
           >
           <a mat-button [routerLink]="['/products']" routerLinkActive="active"
-            >Products</a
+            >{{'HEADER.PRODUCTS' | translate }}</a
           >
           <a mat-button [routerLink]="['/contact']" routerLinkActive="active"
-            >Contact</a
+            >{{'HEADER.CONTACT' | translate }}</a
           >
         </nav>
         <a mat-raised-button matBadge="4" matBadgeColor="warn"
-          ><mat-icon>shopping_cart</mat-icon> Carrito</a
+          ><mat-icon>shopping_cart</mat-icon> {{'HEADER.CART' | translate }}</a
         >
       </div>
     </div>

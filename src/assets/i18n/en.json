@@ -1,5 +1,8 @@
 {
-    "DEMO":{
-        "PARAGRAPH": "This is a test"
+    "HEADER":{
+        "HOME": "Home",
+        "PRODUCTS": "Products",
+        "CONTACT": "Contact",
+        "CART": "Cart"
     }
 }

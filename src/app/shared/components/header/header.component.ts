@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { I18nServiceService } from 'src/app/core/services/i18n/i18n-service.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor( private translate: TranslateService, private i18nService: I18nServiceService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.i18nService.localeEvent$.subscribe((locale) =>
+      this.translate.use(locale)
+    );
   }
 
 }

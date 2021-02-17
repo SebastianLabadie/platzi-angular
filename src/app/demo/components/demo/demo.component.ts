@@ -1,19 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { I18nServiceService } from 'src/app/core/services/i18n/i18n-service.service';
 
 @Component({
   selector: 'app-demo',
   templateUrl: './demo.component.html',
-  styleUrls: ['./demo.component.scss']
+  styleUrls: ['./demo.component.scss'],
 })
 export class DemoComponent implements OnInit {
-
-  constructor(public translate: TranslateService) {
-    translate.addLangs(['en', 'es']);
-    translate.setDefaultLang('en');
-
-    const browserLang = translate.getBrowserLang();
-    translate.use(browserLang.match(/en|es/) ? browserLang : 'en');
+  constructor(
+    private translate: TranslateService,
+    private i18nService: I18nServiceService
+  ) {
+    this.i18nService.localeEvent$.subscribe((locale) => {
+      this.translate.use(locale);
+      console.log('demo: ', locale);
+    });
   }
 
   title = 'platzi-store';
@@ -24,8 +26,14 @@ export class DemoComponent implements OnInit {
 
   power = 10;
 
-  ngOnInit() {
-    // code
+  ngOnInit(): void {
+    this.i18nService.localeEvent$.subscribe((locale) =>
+      this.translate.use(locale)
+    );
+  }
+
+  changeLocale(locale: string): void {
+    this.i18nService.changeLocale(locale);
   }
 
   addItem() {
@@ -35,8 +43,4 @@ export class DemoComponent implements OnInit {
   deleteItem(index: number) {
     this.items.splice(index, 1);
   }
-
-
-
-
 }
